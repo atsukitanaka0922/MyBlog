@@ -1,0 +1,11 @@
+# _siteディレクトリは生成された出力ファイルなのでGitで管理しない
+_site/
+
+# node_modulesはnpmでいつでも再インストールできるので除外
+node_modules/
+
+# エディタやOSが生成する一時ファイルを除外
+.DS_Store
+.vscode/
+*.log
+.cache/
