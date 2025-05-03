@@ -2,6 +2,7 @@ module.exports = function(eleventyConfig) {
   // パススルーコピー
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("images"); // 画像ディレクトリを追加
+  eleventyConfig.addPassthroughCopy("favicon.svg"); // ファビコンも追加
   
   // 日付フォーマットフィルタ
   eleventyConfig.addFilter("date", function(date, format) {
@@ -45,6 +46,22 @@ module.exports = function(eleventyConfig) {
       }
     });
     return [...tagSet].sort();
+  });
+  
+  // 開発サーバーの設定
+  eleventyConfig.setServerOptions({
+    // ホットリロードを有効化
+    liveReload: true,
+    // ポート番号
+    port: 8080,
+    // 監視する特定のファイルやディレクトリを指定 (監視するパスは文字列である必要があります)
+    watch: [
+      "_site/**/*",
+      "css/**/*.css",
+      "images/**/*",
+      "**/*.md",
+      "**/*.njk"
+    ]
   });
   
   // マークダウン設定

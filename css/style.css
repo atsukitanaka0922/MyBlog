@@ -1,3 +1,5 @@
+@import 'home.css';
+
 /* ベース設定 */
 :root {
   --primary-color: #0ea5e9;
